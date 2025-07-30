@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FerramentaFacil.Application\FerramentaFacil.Application.csproj" />
+    <ProjectReference Include="..\FerramentaFacil.Domain\FerramentaFacil.Domain.csproj" />
+    <ProjectReference Include="..\FerramentaFacil.Infra.Data\FerramentaFacil.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
