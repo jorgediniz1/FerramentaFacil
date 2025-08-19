@@ -24,12 +24,23 @@ namespace FerramentaFacil.Domain.Tests.Entities
         }
 
 
-        [Fact(DisplayName = "Criar categoria com nome curto lança Exception")]
+        [Fact(DisplayName = "Criar categoria com nome muito pequeno lança Exception")]
         public void CriarCategoria_ComNomeCurto_DeveLancarException()
         {
             var categoriaEx = Assert.Throws<DomainExceptionValidation>(() => new Categoria(1, "Pi"));
 
             Assert.Equal("Nome inválido. Mínimo 3 caracteres.", categoriaEx.Message);
+        }
+
+        [Fact(DisplayName = "Criar categoria com nome muito longo lança Exception")]
+        public void CriarCategoria_ComNomeLongo_DeveLancarException()
+        {
+
+            var nomeMuitoLongo = new string('a', 101);
+
+            var categoriaEx = Assert.Throws<DomainExceptionValidation>(() => new Categoria(1, nomeMuitoLongo));
+
+            Assert.Equal("Nome inválido. Máximo 100 caracteres.", categoriaEx.Message);
         }
 
 

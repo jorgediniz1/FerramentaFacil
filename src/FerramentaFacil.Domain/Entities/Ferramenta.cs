@@ -6,7 +6,7 @@ namespace FerramentaFacil.Domain.Entities
     {
         public string Nome { get; private set; }
         public string Descricao { get; private set; }
-        public decimal Valor { get; set; }
+        public decimal ValorDiaria { get; private set; }
         public int Estoque { get; private set; }
         public string Imagem { get; private set; }
 
@@ -45,10 +45,15 @@ namespace FerramentaFacil.Domain.Entities
 
             Nome = nome;
             Descricao = descricao;
-            Valor = valor;
+            ValorDiaria = valor;
             Estoque = estoque;
             Imagem = imagem;
 
         }
+
+        // Construtor protegido para EF Core
+#pragma warning disable CS0628 // New protected member declared in sealed type
+        protected Ferramenta() { }
+#pragma warning restore CS0628 // New protected member declared in sealed type
     }
 }

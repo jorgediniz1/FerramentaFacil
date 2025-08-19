@@ -32,6 +32,7 @@ namespace FerramentaFacil.Domain.Entities
         {
             DomainExceptionValidation.When(string.IsNullOrEmpty(nome), "Nome inválido. Nome é requerido.");
             DomainExceptionValidation.When(nome.Length < 3, "Nome inválido. Mínimo 3 caracteres.");
+            DomainExceptionValidation.When(nome.Length > 100, "Nome inválido. Máximo 100 caracteres.");
             
             Nome = nome;
         }

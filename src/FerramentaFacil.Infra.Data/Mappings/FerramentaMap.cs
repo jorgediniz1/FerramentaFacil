@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FerramentaFacil.Infra.Data.EntitiesConfiguration
+namespace FerramentaFacil.Infra.Data.EntitiesMappings
 {
-    public class FerramentaConfiguration : IEntityTypeConfiguration<Ferramenta>
+    public class FerramentaMap : IEntityTypeConfiguration<Ferramenta>
     {
         public void Configure(EntityTypeBuilder<Ferramenta> builder)
         {
@@ -18,7 +18,7 @@ namespace FerramentaFacil.Infra.Data.EntitiesConfiguration
                 .HasMaxLength(200)
                 .IsRequired();
 
-            builder.Property(f => f.Valor)
+            builder.Property(f => f.ValorDiaria)
                 .HasPrecision(10,2);
 
             builder.HasOne(c => c.Categoria)

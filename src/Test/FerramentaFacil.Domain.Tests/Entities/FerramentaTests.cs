@@ -22,7 +22,7 @@ namespace FerramentaFacil.Domain.Tests.Entities
             Assert.Equal(1, ferramenta.Id);
             Assert.Equal("Pincél 3 pol Vonder", ferramenta.Nome);
             Assert.Equal("Para reformas ou retoques no ambiente residencial", ferramenta.Descricao);
-            Assert.Equal(4.99m, ferramenta.Valor);
+            Assert.Equal(4.99m, ferramenta.ValorDiaria);
             Assert.Equal(15, ferramenta.Estoque);
             Assert.Equal("pincel3pol.jpg", ferramenta.Imagem);
         }
@@ -93,10 +93,10 @@ namespace FerramentaFacil.Domain.Tests.Entities
         }
 
 
-        [Theory(DisplayName = "Criar ferramenta com valor negativo lança exceção")]
+        [Theory(DisplayName = "Criar ferramenta com valor diária negativo lança exceção")]
         [InlineData(-3.99)]
         [InlineData(-5.99)]
-        public void CriarFerramenta_ComValorNegativo_DeveLancarException(int valorInvalido)
+        public void CriarFerramenta_ComValorDiariaNegativo_DeveLancarException(int valorInvalido)
         {
 
             var ex = Assert.Throws<DomainExceptionValidation>(() =>
